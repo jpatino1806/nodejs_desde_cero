@@ -1,0 +1,5 @@
+EXPRESS-GENERATOR crea una estructura completa para app con NODEJs
+
+sin iniciar nada se abre el terminal y se ejecuta
+npm i express-generator
+express --ejs egenerator (ejs = generador de plantillas)

@@ -1,0 +1,6 @@
+BCRYPTJS es un paquete de nodejs para encriptar los password y guardarlos 
+en la base de datos hasheados o encriptados y no en texto plano porque es muy
+peligroso por el robo de informacion
+
+instalacion:
+npm install bcryptjs

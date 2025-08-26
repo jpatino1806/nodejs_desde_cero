@@ -1,0 +1,2 @@
+Conectar y mostrar una base de datos de myqsl con sequelize
+

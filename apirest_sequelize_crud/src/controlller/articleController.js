@@ -59,7 +59,7 @@ export const deleteArticle = async(req, res) => {
         
     } catch (error) {
         console.log(error)
-        res.status(400).json({message: "ha ocurrido un problema con el barrado del articulo"})
+        res.status(400).json({message: "ha ocurrido un problema con el borrado del articulo"})
     }
 }
 

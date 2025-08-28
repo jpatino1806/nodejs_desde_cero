@@ -1,6 +1,7 @@
-const express = require('express');
-const {Sequelize , DataTypes, JSON } = require('sequelize');
+import express, { json } from 'express';
+import { Sequelize, DataTypes } from 'sequelize';
 const app = express();
+app.use(json())
 
 //definimos los parametros de conexion
 const sequelize = new Sequelize('postres_db','root','',{
@@ -26,9 +27,9 @@ try {
     //mostrar elementos de la base datos
 postresModel.findAll({attributes:['nombre', 'calorias']})
     .then(postres => {
-        //const resultados =  
-
-        console.log(postres);
+        //console.log(postres);
+        const resultados = postres.map(p => p.toJSON());
+        console.log(JSON.stringify(resultados, null, 2));
     })
     .catch(error => {
         console.log(error)
@@ -37,3 +38,4 @@ postresModel.findAll({attributes:['nombre', 'calorias']})
 app.listen(3000, () => {
     console.log('servidor UP puerto 3000');
 });
+

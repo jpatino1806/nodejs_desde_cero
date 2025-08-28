@@ -1,13 +1,15 @@
 import { Article } from "../models/article.js";
+import {User} from "../models/user.js"
 
 export const createArticle = async(req, res) => {
 
     try {
-        const {title, description} = req.body
+        const {title, description, idUser} = req.body
 
         const article = await Article.create({
             title,
-            description
+            description,
+            idUser
         })
         return res.status(200).json(article)
 
@@ -66,7 +68,14 @@ export const deleteArticle = async(req, res) => {
 export const getArticles = async(req, res) => {
     try {
         
-        const article = await Article.findAll()
+        const article = await Article.findAll(
+            {
+                include:{
+                    model: User,
+                    attributes:["id", "name"]
+                }
+            }
+        )
         if (article.length === 0){
             return res.status(400).json({message: "no existe datos a mostar"})
         }

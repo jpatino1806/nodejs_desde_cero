@@ -1,7 +1,9 @@
 import {app} from "./app.js";
 import {sequelize} from "./database/conexionDB.js";
-import { Article } from "./models/article.js";
-import { User } from "./models/user.js";
+import './models/association_uno_much.js'
+// import { Article } from "./models/article.js";
+// import { User } from "./models/user.js";
+
 
 
 async function main(){

@@ -1,4 +1,5 @@
  import { User } from "../models/user.js";
+import { UserProfile } from "../models/userProfile.js";
  
  export const createUser = async(req, res) => {
  
@@ -69,7 +70,13 @@
  export const getUsers = async(req, res) => {
      try {
          
-         const user = await User.findAll()
+         const user = await User.findAll(
+            {
+                include:{
+                    model: UserProfile
+                }
+            }
+         )
          if (user.length === 0){
              return res.status(400).json({message: "no existe datos a mostar"})
          }

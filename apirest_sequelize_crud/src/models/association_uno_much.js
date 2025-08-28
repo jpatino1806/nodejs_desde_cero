@@ -1,5 +1,6 @@
 import {User} from './user.js'
 import {Article} from './article.js'
+import { UserProfile } from './userProfile.js'
 
 //Relacion de 1 a muchos entre usuarios y articulos
 User.hasMany(Article, {
@@ -10,4 +11,13 @@ User.hasMany(Article, {
 })
 Article.belongsTo(User, {
     foreignKey: "idUser"
+})
+
+
+//relacion de 1 a 1 (User - UserProfile)
+User.hasOne(UserProfile, {
+    foreignKey: 'userId'
+})
+UserProfile.belongsTo(User, {
+    foreignKey: 'userId'
 })

@@ -1,0 +1,28 @@
+Usando mysql con nodejs a travez de sequelize-cli
+
+1 npx sequelize-cli init 
+    inicializar sequelize-cli, esto creara 4 carpetas en el proyecto 
+    > config
+    > models
+    > migrations
+    > seeders
+2 npx sequelize-cli db:create
+    este comando creara la base de datos con el nombre que le configuramos
+    en el archivo config.json de la carpeta config
+
+3 npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
+    este comando crea el model User en la carpeta models y tambien crea la estructura para la tabla Users
+    con el comando db:migrate
+
+4 npx sequelize-cli db:migrate
+    este comando crea la tabla user, tomar en cuenta que el modelo se creo en singular y la tabla 
+    lo crea en plural
+
+5 npx sequelize-cli seed:generate --name demo-user
+    este comando crea un usuario demo para poder ingresar datos a la tabla 
+    users que aun esta vacia. esto genera un archivo demo-user en la carpeta seeders
+    modificamos el module.export con nuestros datos y ejecutamos 
+    db:seed:all
+6 npx sequelize-cli db:seed:all
+    con este comando hemos creado nuestro primer usuario de pueba en la tabla users
+    
